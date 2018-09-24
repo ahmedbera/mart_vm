@@ -22,15 +22,20 @@ So far all functions are `static` so need to initialize anything.
 ```dart
 import 'package:mart_vm/mart.dart';
 
-Mart.getMangaById(id).then((res) {
+Mart.getMangaById("70263").then((res) {
     // returns Manga
     // you can see Manga class in /Models/manga.dart
 });
+
+Mart.searchMangaByString("horimiya").then((res) {
+    // Returns an array of `SearchResult`
+});
+
 ```
 
 ## What can mart do so far
 - [x] Parse Manga details page
-- [ ] Basic search
+- [x] Basic search
 - [ ] Advanced search
 - [ ] Parse user lists
 - [ ] Parse scan groups
