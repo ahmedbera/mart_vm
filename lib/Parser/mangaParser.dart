@@ -1,4 +1,5 @@
 import 'package:mart_vm/Models/manga.dart';
+import 'package:mart_vm/Models/genericLink.dart';
 import 'package:html/parser.dart';
 
 parseManga(String response) {
