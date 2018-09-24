@@ -1,38 +1,36 @@
+import 'package:mart_vm/Models/genericLink.dart';
+
 class Manga {
-  var title = "";
-  var type = '';
-  var imgUrl = null;
-  var description = '';
-  var status = '';
+  String title;
+  String type;
+  String imgUrl;
+  String description;
+  String status;
+  String year;
+  String lastUpdated;
+  
   bool scanlated;
-  var genres = [];
-  var tags = [];
-  var authors = []; // { name: "", url : "" }
-  var artists = []; // { name: "", url : "" }
-  var year = '';
-  var associatedNames = [];
-  var groupsScanlating = [];
-  var categoryRecommendations = [];
-  var recommendations = [];
-  var latestReleases = [];
-  var originalPublisher;
   bool licensed = false;
-  var englishPublisher;
+
+  List<String> associatedNames = [];
+  
+  List<Map> latestReleases = [];
   UserRating score;
-  var lastUpdated;
-  var categories = [];
+  List<GenericLink> genres = [];
+  List<GenericLink> tags = [];
+  List<GenericLink> authors = [];
+  List<GenericLink> artists = [];
+  List<GenericLink> groupsScanlating = [];
+  List<GenericLink> categoryRecommendations = [];
+  List<GenericLink> recommendations = [];
+  GenericLink originalPublisher;
+  GenericLink englishPublisher;
+  List<GenericLink> categories = [];
 }
 
 class UserRating {
-  var voters;
-  var average;
-  var bayesianAverage;
-  var distribution = [];
-}
-
-class GenericLink {
-  var name;
-  var url;
-
-  GenericLink(this.name, this.url);
+  String voters;
+  String average;
+  String bayesianAverage;
+  List<Map> distribution = [];
 }
