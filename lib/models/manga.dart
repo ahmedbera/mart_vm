@@ -1,4 +1,4 @@
-import 'package:mart_vm/Models/genericLink.dart';
+import 'package:mart_vm/models/genericLink.dart';
 
 class Manga {
   String title;

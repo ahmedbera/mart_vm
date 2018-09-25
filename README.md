@@ -24,7 +24,7 @@ import 'package:mart_vm/mart.dart';
 
 Mart.getMangaById("70263").then((res) {
     // returns Manga
-    // you can see Manga class in /Models/manga.dart
+    // you can see Manga class in /models/manga.dart
 });
 
 Mart.searchMangaByString("horimiya").then((res) {

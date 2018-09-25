@@ -1,9 +1,9 @@
 import 'dart:async';
 import 'package:http/http.dart' as http;
-import 'package:mart_vm/Parser/mangaParser.dart';
-import 'package:mart_vm/Models/manga.dart';
-import 'package:mart_vm/Models/searchOptions.dart';
-import 'package:mart_vm/Parser/searchResultsParser.dart';
+import 'package:mart_vm/parser/mangaParser.dart';
+import 'package:mart_vm/models/manga.dart';
+import 'package:mart_vm/models/searchOptions.dart';
+import 'package:mart_vm/parser/searchResultsParser.dart';
 
 class Mart {
   static Future<Manga> getMangaById(id) async {

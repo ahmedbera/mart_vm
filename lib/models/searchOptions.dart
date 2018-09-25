@@ -1,4 +1,4 @@
-import 'package:mart_vm/Models/options.dart';
+import 'package:mart_vm/models/options.dart';
 
 // https://github.com/ahmedbera/mudroid/blob/master/src/lib/Mangaupdates.js
 class SearchOptions {

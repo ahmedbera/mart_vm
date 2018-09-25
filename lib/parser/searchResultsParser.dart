@@ -1,5 +1,5 @@
 import 'package:html/parser.dart';
-import 'package:mart_vm/Models/searchResult.dart';
+import 'package:mart_vm/models/searchResult.dart';
 
 parseSearchResults(String response) {
   var document = parse(response).body;

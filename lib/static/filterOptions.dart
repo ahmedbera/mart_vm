@@ -1,4 +1,4 @@
-import 'package:mart_vm/Models/options.dart';
+import 'package:mart_vm/models/options.dart';
 
 List<FilterOption> filterOptionsList = [
   new FilterOption("Show all manga", null),

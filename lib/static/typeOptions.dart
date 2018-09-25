@@ -1,4 +1,4 @@
-import 'package:mart_vm/Models/options.dart';
+import 'package:mart_vm/models/options.dart';
 
 List<TypeOption> typeOptionsList = [
   new TypeOption("Show All", null),
