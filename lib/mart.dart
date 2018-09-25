@@ -2,8 +2,10 @@ import 'dart:async';
 import 'package:http/http.dart' as http;
 import 'package:mart_vm/parser/mangaParser.dart';
 import 'package:mart_vm/models/manga.dart';
+import 'package:mart_vm/models/author.dart';
 import 'package:mart_vm/models/searchOptions.dart';
 import 'package:mart_vm/parser/searchResultsParser.dart';
+import 'package:mart_vm/parser/authorParser.dart';
 
 class Mart {
   static Future<Manga> getMangaById(id) async {
@@ -23,6 +25,13 @@ class Mart {
   static Future<List> advancedSearch(SearchOptions options, [page=1]) async {
     return makeRequest(options.url).then((res) {
       return parseSearchResults(res);
+    });
+  }
+
+  static Future<Author> getAuthorById(id) async {
+    var url = "https://www.mangaupdates.com/authors.html?id="+id;
+    return makeRequest(url).then((res) {
+      return parseAuthorPage(res);
     });
   }
 
