@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:http/http.dart' as http;
 import 'package:mart_vm/Parser/mangaParser.dart';
 import 'package:mart_vm/Models/manga.dart';
+import 'package:mart_vm/Models/searchOptions.dart';
 import 'package:mart_vm/Parser/searchResultsParser.dart';
 
 class Mart {
@@ -15,6 +16,12 @@ class Mart {
   static Future<List> searchMangaByString(String searchTerm, [page=1]) async {
     var url = "http://www.mangaupdates.com/series.html?page=" + page.toString() + "&stype=title&search=" + searchTerm.replaceAll(' ', '+');
     return makeRequest(url).then((res) {
+      return parseSearchResults(res);
+    });
+  }
+
+  static Future<List> advancedSearch(SearchOptions options, [page=1]) async {
+    return makeRequest(options.url).then((res) {
       return parseSearchResults(res);
     });
   }

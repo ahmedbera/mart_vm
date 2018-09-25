@@ -1,3 +1,5 @@
+import 'package:mart_vm/Models/options.dart';
+
 List<FilterOption> filterOptionsList = [
   new FilterOption("Show all manga", null),
   new FilterOption("Only show completely scanlated manga", "scanlated"),
@@ -8,9 +10,3 @@ List<FilterOption> filterOptionsList = [
   new FilterOption("Only show manga with no releases", "no_releases")
 ];
 
-class FilterOption {
-  String label;
-  String value;
-
-  FilterOption(this.label, this.value);
-}

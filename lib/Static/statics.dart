@@ -2,6 +2,7 @@ import 'package:mart_vm/Static/genres.dart';
 import 'package:mart_vm/Static/licenseOptions.dart';
 import 'package:mart_vm/Static/filterOptions.dart';
 import 'package:mart_vm/Static/typeOptions.dart';
+import 'package:mart_vm/Models/options.dart';
 
 class Statics {
   static List<LicenseOption> licenseOptions = licenseOptionsMap;

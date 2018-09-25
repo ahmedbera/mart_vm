@@ -36,7 +36,7 @@ Mart.searchMangaByString("horimiya").then((res) {
 ## What can mart do so far
 - [x] Parse Manga details page
 - [x] Basic search
-- [ ] Advanced search
+- [x] Advanced search
 - [ ] Parse user lists
 - [ ] Parse scan groups
 - [ ] Parse artist/author page

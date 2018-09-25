@@ -1,4 +1,4 @@
-List genres = [
+List<String> genres = [
   "Action",
   "Adult",
   "Adventure",

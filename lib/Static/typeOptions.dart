@@ -1,3 +1,5 @@
+import 'package:mart_vm/Models/options.dart';
+
 List<TypeOption> typeOptionsList = [
   new TypeOption("Show All", null),
   new TypeOption("Only show results for Artbook","artbook"),
@@ -13,9 +15,3 @@ List<TypeOption> typeOptionsList = [
   new TypeOption("Only show results for Filipino", "filipino")
 ];
 
-class TypeOption {
-  String label;
-  String value;
-
-  TypeOption(this.label, this.value);
-}
