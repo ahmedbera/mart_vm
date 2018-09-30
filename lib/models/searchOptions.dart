@@ -49,8 +49,11 @@ class SearchOptions {
     // License, filters, type string
     this.licensed =
         licensed == null ? '' : licensed ? "&licensed=yes" : "&licensed=no";
-    this.filter = "&filter=" + filterOption.value;
-    this.type = "&type=" + typeOption.value;
+  
+    if(filterOption.value != null)
+      this.filter = "&filter=" + filterOption?.value;
+    if(typeOption.value != null)
+      this.type = "&type=" + typeOption?.value;
 
     // Build url
     this.url = this.url +

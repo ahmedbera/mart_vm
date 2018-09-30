@@ -136,7 +136,7 @@ parseManga(String response) {
       });
     } else if (element.text.contains('Original Publisher')) {
       var publisher = element.nextElementSibling.querySelector('a');
-      if(publisher.text != '') {
+      if(publisher != null && publisher.text != '') {
         manga.originalPublisher = new GenericLink(publisher.text, publisher.attributes['href']);
       }
     } else if (element.text.contains('Licensed')) {
@@ -145,10 +145,12 @@ parseManga(String response) {
     } else if (element.text.contains('Last Updated')) {
       manga.lastUpdated = element.nextElementSibling.text.trim();
     } else if (element.text.contains('English')) {
-      manga.englishPublisher = new GenericLink(
-        element.nextElementSibling.text.trim(),
-        element.nextElementSibling.querySelector('a').attributes['href']
-      );
+      if(element.nextElementSibling.querySelector('a') != null) {
+        manga.englishPublisher = new GenericLink(
+          element.nextElementSibling.text.trim(),
+          element.nextElementSibling.querySelector('a').attributes['href']
+        );
+      }
     } else if (element.text.contains('Categories')) {
       element.nextElementSibling.querySelectorAll('ul li a').forEach((a) {
         if(a.attributes['rel'] == "nofollow") {
