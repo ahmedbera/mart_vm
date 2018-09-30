@@ -7,7 +7,36 @@ import 'package:mart_vm/models/searchOptions.dart';
 import 'package:mart_vm/parser/searchResultsParser.dart';
 import 'package:mart_vm/parser/authorParser.dart';
 
+
 class Mart {
+  static String cookie = '';
+
+  static Future<bool> login(username, password) async {
+    var url = 'https://www.mangaupdates.com/login.html?' + 'act=login&username=' + username + '&password=' + password + '&x=0&y=0';
+
+    var response = await http.post(url);
+    
+    String headers = '';
+    response.headers.forEach((key, value){
+      if(key == 'set-cookie') {
+        headers = value;
+      }
+    });
+
+    RegExp secure_blastvisit = new RegExp(r'secure_blastvisit=\w*;');
+    RegExp secure_session = new RegExp(r'secure_session=\w*;');
+
+    var blastvisit = secure_blastvisit.stringMatch(headers);
+    var session = secure_session.allMatches(headers).last.group(0);
+
+    if(blastvisit != null && session != null) {
+      Mart.cookie = session + blastvisit;
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   static Future<Manga> getMangaById(id) async {
     var url = "https://www.mangaupdates.com/series.html?id="+id;
     return makeRequest(url).then((res) {
