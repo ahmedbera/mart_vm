@@ -1,7 +1,7 @@
 class Author {
   String name;
   String imageUrl;
-  String associatedNames;
+  List<String> associatedNames = [];
   String nativeName;
   String birthPlace;
   String birthday;
@@ -10,9 +10,9 @@ class Author {
   String comments;
   String bloodType;
   String gender;
-  List genres;
+  List genres = [];
   String website;
   String twitter;
   String facebook;
-  List series;
+  List series = [];
 }
