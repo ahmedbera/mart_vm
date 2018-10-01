@@ -65,7 +65,9 @@ class Mart {
   }
 
   static Future<String> makeRequest(url) async {
-    return http.read(url).then((result) {
+    return http.read(url, headers: {
+      "cookie" : cookie
+    }).then((result) {
       return result;
     });
   }
