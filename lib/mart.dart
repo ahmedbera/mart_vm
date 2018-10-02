@@ -1,11 +1,12 @@
 import 'dart:async';
 import 'package:http/http.dart' as http;
 import 'package:mart_vm/parser/mangaParser.dart';
+import 'package:mart_vm/parser/searchResultsParser.dart';
+import 'package:mart_vm/parser/authorParser.dart';
+import 'package:mart_vm/parser/userList.dart';
 import 'package:mart_vm/models/manga.dart';
 import 'package:mart_vm/models/author.dart';
 import 'package:mart_vm/models/searchOptions.dart';
-import 'package:mart_vm/parser/searchResultsParser.dart';
-import 'package:mart_vm/parser/authorParser.dart';
 
 
 class Mart {
@@ -61,6 +62,13 @@ class Mart {
     var url = "https://www.mangaupdates.com/authors.html?id="+id;
     return makeRequest(url).then((res) {
       return parseAuthorPage(res);
+    });
+  }
+
+  static Future getMangaList([String listId="read"]) {
+    var url = "https://www.mangaupdates.com/mylist.html?list=" + listId;
+    return makeRequest(url).then((res) {
+      return parseUserList(res);
     });
   }
 
