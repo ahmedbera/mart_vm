@@ -1,5 +1,5 @@
-
 import 'package:html/parser.dart';
+import 'package:mart_vm/models/statItem.dart';
 
 parseSeriesStatsPage(response) {
   var document = parse(response).body;
@@ -18,12 +18,4 @@ parseSeriesStatsPage(response) {
   });
 
   return statsList;
-}
-
-class StatItem {
-  String title;
-  String muId;
-  String genres;
-  String rank;
-  String change;
 }
