@@ -101,9 +101,9 @@ parseManga(String response) {
           "Date" : element.nextElementSibling.children[10].text
         });
       }
-      manga.latestReleases.add({
-        "SearchAll": element.nextElementSibling.children.last.attributes['href']
-      });
+      
+      // https://www.mangaupdates.com/releases.html?search=70263&stype=series
+      // "Search for all releases of this series"
 
     } else if (element.text == 'User Rating') {
       UserRating rating = new UserRating();
