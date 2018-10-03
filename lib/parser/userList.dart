@@ -16,11 +16,10 @@ parseUserList(String response) {
 
   // Dart please
   document.querySelector('p.text').querySelectorAll('a').forEach((link) {
-    // TODO: parse links as title and url parameter
     list.otherLists.add(
       new GenericLink(
         link.text.trim(), 
-        link.attributes['href']
+        link.attributes['href'].split("=")[1]
       )
     );
   });
