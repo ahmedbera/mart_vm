@@ -4,6 +4,7 @@ import 'package:mart_vm/parser/mangaParser.dart';
 import 'package:mart_vm/parser/searchResultsParser.dart';
 import 'package:mart_vm/parser/authorParser.dart';
 import 'package:mart_vm/parser/userList.dart';
+import 'package:mart_vm/parser/seriesStats.dart';
 import 'package:mart_vm/models/manga.dart';
 import 'package:mart_vm/models/author.dart';
 import 'package:mart_vm/models/searchOptions.dart';
@@ -72,11 +73,21 @@ class Mart {
     });
   }
 
+  static Future parseSeriesStats([String period="month1", String page="1"]) async {
+    var url = "https://www.mangaupdates.com/stats.html?period="+ period + "&page="+ page;
+    //var url = "https://www.mangaupdates.com/stats.html";
+    return makeRequest(url).then((res) {
+      return parseSeriesStatsPage(res);
+    });
+  }
+
   static Future<String> makeRequest(url) async {
     return http.read(url, headers: {
       "cookie" : cookie
     }).then((result) {
       return result;
+    }).catchError((err) {
+      print(err);
     });
   }
 }
