@@ -81,6 +81,23 @@ class Mart {
     });
   }
 
+  static Future updateLists({String id, listId, bool delete, chapter, volume}) async {
+    /** TODO
+     * id: manga id
+     * cache_j={number},{number},{number} 3, 8 character random number
+     * * * * * * * * * * * * * *
+     * l: list id (0 is delete)
+     * r: remove (probably)
+     * inc_c: increment chapter (can be negative)
+     * inc_v: increment volume (can be negative)
+     * * * * * * * * * * * * * *
+     * set_c: set chapter number
+     * set_v: set volume number
+     */
+    var url_list = 'https://www.mangaupdates.com/ajax/list_update.php?s=${id}&l=0&r=1&inc_c=1&inc_v=1&cache_j=19513573,84101695,22476166';
+    var url_chap = 'https://www.mangaupdates.com/ajax/chap_update.php?s=${id}&set_v=${volume}&set_c=${chapter}&cache_j=65548501,29918347,4231017';
+  }
+
   static Future<String> makeRequest(url) async {
     return http.read(url, headers: {
       "cookie" : cookie
