@@ -105,14 +105,17 @@ class Mart {
      * set_v: set volume number
      * if r=1 is used also use inc_c=1 and inc_v=1
      */
+    if(Mart.cookie == '') {
+      throw new StateError("Cookie has not been found.");
+    }
     String list_update = 'https://www.mangaupdates.com/ajax/list_update.php?s=${id}';
     String chap_update = 'https://www.mangaupdates.com/ajax/chap_update.php?s=${id}';
-    String list_id = listId == null ? '&l=0' : '';
+    String list_id = listId == null ? '' : '&l=${listId}';
     String remove = delete ? '&l=0&r=1' : '';
-    String inc_c = chapter == null ? '&inc_c=${chapter}' : '';
-    String inc_v = volume == null ? '&inc_v=${volume}' : '';
-    String set_c = chapter == null ? '&set_c=${chapter}' : '';
-    String set_v = volume == null ? '&set_v=${volume}' : '';
+    String inc_c = chapter == null ? '' : '&inc_c=${chapter}';
+    String inc_v = volume == null ? '' : '&inc_v=${volume}';
+    String set_c = chapter == null ? '' : '&set_c=${chapter}';
+    String set_v = volume == null ? '' : '&set_v=${volume}';
     String cache = '&cache_j=';
 
     String url = '';
@@ -138,7 +141,7 @@ class Mart {
     }
     
     url += cache;
-
+    // print(url);
     return makeRequest(url).then((res) {
       return res;
     });
@@ -153,7 +156,7 @@ class Mart {
   static Future removeManga([String id]) async {
     return updateLists(id: id, type: "list", delete: true);
   }
-  static Future chapterUpdate(String id, int chapter, int volume) async {
+  static Future chapterUpdate({String id, int chapter, int volume}) async {
     return updateLists(id: id, type: "chap", chapter: chapter, volume: volume);
   }
   static Future moveToList(String id, listId) async {

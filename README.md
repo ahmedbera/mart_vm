@@ -57,6 +57,12 @@ Future<List> searchMangaByString(String searchTerm, [page=1])
 Future<List> advancedSearch(SearchOptions options, [page=1])
 Future<List> getMangaList([String listId="read"])
 Future<List> parseSeriesStats([String period="month1", String page="1"])
+// These functions require cookie. If cookie has not been found they throw an Error.
+Future chapterIncrement([String id, int increment=1])
+Future volumeIncrement([String id, int increment=1])
+Future removeManga([String id])
+Future chapterUpdate({String id, int chapter, int volume})
+Future moveToList(String id, listId) // not tested
 ```
 
 ## What can mart do so far
@@ -66,8 +72,9 @@ Future<List> parseSeriesStats([String period="month1", String page="1"])
 - [x] Parse user lists
 - [x] Parse artist/author page
 - [x] Parse Series Statistics page
-- [ ] Parse What's New page
+- [ ] Perform ajax requests (In Progress)
 - [ ] Parse scan groups
+- [ ] Parse What's New page
 
 These are the features I've planned so far.
 
