@@ -9,10 +9,10 @@ parseSearchResults(String response) {
     if (tr.attributes['valign'] == null && i > 1) {
       try {
         results.add(new SearchResult(
-          tr.querySelector(".text .col1").text,
-          tr.querySelector(".text .col2").text,
-          tr.querySelector(".text .col3").text,
-          tr.querySelector(".text .col4").text,
+          tr.querySelector(".text .col1").text?.trim(),
+          tr.querySelector(".text .col2").text?.trim(),
+          tr.querySelector(".text .col3").text?.trim(),
+          tr.querySelector(".text .col4").text?.trim(),
           tr.querySelector("a[alt='Series Info']").attributes['href']));
       } catch (e) {}
     }
