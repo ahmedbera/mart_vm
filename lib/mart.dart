@@ -75,7 +75,7 @@ class Mart {
     });
   }
 
-  static Future parseSeriesStats([String period="month1", String page="1"]) async {
+  static Future getSeriesStats([String period="month1", String page="1"]) async {
     var url = "https://www.mangaupdates.com/stats.html?period="+ period + "&page="+ page;
     //var url = "https://www.mangaupdates.com/stats.html";
     return makeRequest(url).then((res) {
