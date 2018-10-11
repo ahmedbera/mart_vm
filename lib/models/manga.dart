@@ -26,6 +26,11 @@ class Manga {
   GenericLink originalPublisher;
   GenericLink englishPublisher;
   List<GenericLink> categories = [];
+
+  String currentListName;
+  String currentListId;
+  String readChapters;
+  String readVolumes;
 }
 
 class UserRating {

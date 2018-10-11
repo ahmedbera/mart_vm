@@ -14,6 +14,19 @@ parseManga(String response) {
     manga.tags.add(new GenericLink(tag.text, tag.attributes['href']));
   });
 
+  // List status 
+  var status = document.querySelector('#showList a');
+  try {  
+    manga.currentListName = status.text;
+    manga.currentListId = status.attributes['href'].split("=").last;
+    if(manga.currentListName == "Reading List") {
+      manga.readVolumes = document.querySelector('[title="Increment Volume"]').text;
+      manga.readChapters = document.querySelector('[title="Increment Chapter"]').text;
+    }
+  } catch (e) {}
+  
+  
+
   //we need to go deeper
   // The reason behind using 'contains' and '==' is
   // after logging in some sCat's have [Edit] in them.
