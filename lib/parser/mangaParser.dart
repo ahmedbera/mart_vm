@@ -9,6 +9,9 @@ parseManga(String response) {
   // Manga title
   manga.title = document.querySelector('.releasestitle.tabletitle').text;
 
+  //mu işd
+  manga.id = document.querySelector('input[name="id"]').attributes['value'];
+
   // Tags
   document.querySelectorAll('.tag_normal a').forEach((tag) {
     manga.tags.add(new GenericLink(tag.text, tag.attributes['href']));

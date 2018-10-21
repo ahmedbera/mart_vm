@@ -31,6 +31,8 @@ class Manga {
   String currentListId;
   String readChapters;
   String readVolumes;
+
+  String id;
 }
 
 class UserRating {
