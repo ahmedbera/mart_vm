@@ -19,14 +19,18 @@ parseManga(String response) {
 
   // List status 
   var status = document.querySelector('#showList a');
-  try {  
-    manga.currentListName = status.text;
-    manga.currentListId = status.attributes['href'].split("=").last;
-    if(manga.currentListName == "Reading List") {
-      manga.readVolumes = document.querySelector('[title="Increment Volume"]').text;
-      manga.readChapters = document.querySelector('[title="Increment Chapter"]').text;
-    }
-  } catch (e) {}
+  if(status.text == "Add to reading list") {
+     manga.listInfo.inList = false;
+  } else {
+    try {
+      manga.listInfo.currentListName = status.text;
+      manga.listInfo.currentListId = status.attributes['href'].split("=").last;
+      if(manga.listInfo.currentListName == "Reading List") {
+        manga.listInfo.readVolumes = document.querySelector('[title="Increment Volume"]').text;
+        manga.listInfo.readChapters = document.querySelector('[title="Increment Chapter"]').text;
+      }
+    } catch (e) {}
+  }
   
   
 

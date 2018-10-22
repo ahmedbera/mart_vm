@@ -1,4 +1,5 @@
 import 'package:mart_vm/models/genericLink.dart';
+import 'package:mart_vm/models/listInfo.dart';
 
 class Manga {
   String title;
@@ -27,10 +28,7 @@ class Manga {
   GenericLink englishPublisher;
   List<GenericLink> categories = [];
 
-  String currentListName;
-  String currentListId;
-  String readChapters;
-  String readVolumes;
+  ListInfo listInfo;
 
   String id;
 }
