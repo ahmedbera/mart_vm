@@ -160,6 +160,7 @@ class Mart {
     return updateLists(id: id, type: "chap", chapter: chapter, volume: volume);
   }
   static Future moveToList(String id, listId) async {
+    return updateLists(id: id, listId: listId, type: "list");
     // TODO: investigate inc/set params work during list updates
   }
 
