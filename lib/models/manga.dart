@@ -28,7 +28,7 @@ class Manga {
   GenericLink englishPublisher;
   List<GenericLink> categories = [];
 
-  ListInfo listInfo;
+  ListInfo listInfo = new ListInfo();
 
   String id;
 }
